@@ -36,7 +36,7 @@ load_pob:
 	git clone https://github.com/PathOfBuildingCommunity/PathOfBuilding.git; \
 	pushd PathOfBuilding; \
 	git fetch; \
-	git add . && git reset --hard HEAD && git checkout $$(git describe --tags $$(git rev-list --tags --max-count=1)); \
+	git add . && git reset --hard HEAD \
 	popd
 
 luacurl:
