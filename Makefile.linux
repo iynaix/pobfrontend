@@ -9,7 +9,7 @@ all: frontend pob
 	echo 'Finished'
 
 pob: load_pob luacurl frontend
-	pushd PathOfBuilding; \
+	pushd PathOfBuilding-PoE2; \
 	unzip runtime-win32.zip lua/xml.lua lua/base64.lua lua/sha1.lua; \
 	mv lua/*.lua src/; \
 	rmdir lua; \
@@ -21,7 +21,7 @@ frontend:
 
 load_pob:
 	git clone --depth 1 https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2.git; \
-	pushd PathOfBuilding; \
+	pushd PathOfBuilding-PoE2; \
 	rm -rf .git; \
 	popd
 
