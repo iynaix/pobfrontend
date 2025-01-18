@@ -17,8 +17,8 @@ all: frontend pob
 	pushd build; \
 	ninja install; \
 	popd; \
-	macdeployqt ${DIR}/PathOfBuilding-PoE2.app; \
-	cp ${DIR}/Info.plist.sh ${DIR}/PathOfBuilding-PoE2.app/Contents/Info.plist; \
+	macdeployqt ${DIR}/PathOfBuilding-PoE2-v2.app; \
+	cp ${DIR}/Info.plist.sh ${DIR}/PathOfBuilding-PoE2-v2.app/Contents/Info.plist; \
 	echo 'Finished'
 
 pob: load_pob luacurl frontend
@@ -29,12 +29,12 @@ pob: load_pob luacurl frontend
 	popd
 
 frontend:
-	arch=x86_64 meson -Dbuildtype=release --prefix=${DIR}/PathOfBuilding-PoE2.app --bindir=Contents/MacOS build
+	arch=x86_64 meson -Dbuildtype=release --prefix=${DIR}/PathOfBuilding-PoE2-v2.app --bindir=Contents/MacOS build
 
 # We checkout the latest version.
 load_pob:
-	git clone https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2.git; \
-	pushd PathOfBuilding-PoE2; \
+	git clone https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2-v2.git; \
+	pushd PathOfBuilding-PoE2-v2; \
 	git fetch; \
 	popd
 
@@ -57,4 +57,4 @@ fullyclean: clean
 	rm -rf PathOfBuilding
 
 clean:
-	rm -rf PathOfBuildingBuild PathOfBuilding-PoE2.app Lua-cURLv3 lcurl.so build
+	rm -rf PathOfBuildingBuild PathOfBuilding-PoE2-v2.app Lua-cURLv3 lcurl.so build
