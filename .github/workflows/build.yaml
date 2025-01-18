@@ -2,17 +2,16 @@ name: build
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "PoE2" ]
   pull_request:
     branches: [ "master" ]
   schedule:
     - cron: '30 13 * * *'
-  workflow_dispatch: 
 
 jobs:
   build:
 
-    runs-on: macos-12
+    runs-on: macos-13
 
     steps:
       - uses: actions/checkout@v3
@@ -20,18 +19,17 @@ jobs:
       - run: make tools
       - run: make clean
       - run: make
-      - run: zip -r PathOfBuilding.zip PathOfBuilding.app
+      - run: zip -r PathOfBuilding-PoE2-v2.zip PathOfBuilding-PoE2-v2.app
 
       # Based on https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter
       - id: get-version
         run: |
-          version=$(sed -n 's/^.*number="\([0-9.]*\)".*$/\1/p' PathOfBuilding/manifest.xml)
+          version=$(sed -n 's/^.*number="\([0-9.]*\)".*$/\1/p' PathOfBuilding-PoE2-v2/manifest.xml)
           echo "VERSION=$version" >> "$GITHUB_OUTPUT"
       - name: Upload MacOS artifacts into Github
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "PathOfBuilding.zip"
+          artifacts: "PathOfBuilding-PoE2-v2.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
           tag: v${{ steps.get-version.outputs.VERSION }}
-        if: github.ref == 'refs/heads/master'
