@@ -4,7 +4,7 @@ pushd Lua-cURLv3
 # We only replace `lua` with `luajit` once
 sed -i '' 's/?= lua$/?= luajit/' Makefile
 # We use pkg-config to find the right path for curl libraries
-sed -i '' 's@shell .* --libs libcurl@shell PKG_CONFIG_PATH=$$(arch --x86_64 brew --prefix --installed curl)/lib/pkgconfig $(PKG_CONFIG) --libs libcurl@' Makefile
+sed -i '' 's@shell .* --libs libcurl@shell PKG_CONFIG_PATH=$$(arch -arm64 brew --prefix --installed curl)/lib/pkgconfig $(PKG_CONFIG) --libs libcurl@' Makefile
 # We use the Homebrew installed GCC and build for x86_64 to ensure we build the
 # x86_64 library, even on ARM systems
 sed -i '' 's@?= \$(MAC_ENV) gcc$@ = \$(MAC_ENV) arch=x86_64 gcc-12@' Makefile

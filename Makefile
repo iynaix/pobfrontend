@@ -49,7 +49,7 @@ luacurl:
 # curl is used since mesonInstaller.sh copies over the shared library dylib
 # dylibbundler is used to copy over dylibs that lcurl.so uses
 tools:
-	arch --x86_64 brew install qt@5 luajit zlib meson curl dylibbundler gcc@12
+	arch -arm64 brew install qt@5 luajit zlib meson curl dylibbundler gcc@12
 
 # We don't usually modify the PathOfBuilding directory, so there's rarely a
 # need to delete it. We separate it out to a separate task.
