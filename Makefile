@@ -9,9 +9,9 @@ export PATH := /usr/local/opt/qt@5/bin:$(PATH)
 #
 # For compatibility, we disable that using the flag from this thread:
 # https://github.com/python/cpython/issues/97524
-export LDFLAGS := -L/usr/local/opt/qt@5/lib -Wl,-no_fixup_chains
-export CPPFLAGS := -I/usr/local/opt/qt@5/include
-export PKG_CONFIG_PATH := /usr/local/opt/qt@5/lib/pkgconfig
+export LDFLAGS := -L/opt/homebrew/opt/qt@5/lib -Wl,-no_fixup_chains
+export CPPFLAGS := -I/opt/homebrew/opt/qt@5/include
+export PKG_CONFIG_PATH := /opt/homebrew/opt/qt@5/lib/pkgconfig
 
 all: frontend pob
 	pushd build; \
