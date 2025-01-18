@@ -112,7 +112,7 @@ ninja
 Run the thing:
 
 ```bash
-cd /path/to/PathOfBuilding-PoE2-v2 # <- a pathofbuilding git clone
+cd /path/to/PathOfBuilding-PoE2 # <- a pathofbuilding git clone
 for f in tree*.zip; do unzip $f;done # <- use the provided tree data because reasons
 unzip runtime-win32.zip lua/xml.lua lua/base64.lua lua/sha1.lua
 mv lua/*.lua .
@@ -129,7 +129,7 @@ pobfrontend -2
 
 ### Notes:
 
-I have the following edit in my PathOfBuilding-PoE2-v2 clone, stops it from saving builds even when I tell it not to:
+I have the following edit in my PathOfBuilding-PoE2 clone, stops it from saving builds even when I tell it not to:
 
 ```diff
 --- a/Modules/Build.lua
