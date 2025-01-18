@@ -5,7 +5,7 @@ all: frontend pob
 	pushd build; \
 	ninja; \
 	popd; \
-	mv build/PathOfBuilding PathOfBuilding/src; \
+	mv build/PathOfBuilding-PoE2-v2 PathOfBuilding/src; \
 	echo 'Finished'
 
 pob: load_pob luacurl frontend
@@ -51,4 +51,4 @@ meson:
 	sudo apt -y install meson
 
 clean:
-	rm -rf PathOfBuilding Lua-cURLv3 lcurl.so build
+	rm -rf PathOfBuilding-PoE2-v2 Lua-cURLv3 lcurl.so build

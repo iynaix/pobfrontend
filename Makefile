@@ -23,7 +23,7 @@ all: frontend pob
 
 pob: load_pob luacurl frontend
 	rm -rf PathOfBuildingBuild; \
-	cp -rf PathOfBuilding PathOfBuildingBuild; \
+	cp -rf PathOfBuilding-PoE2-v2 PathOfBuildingBuild; \
 	pushd PathOfBuildingBuild; \
 	bash ../editPathOfBuildingBuild.sh; \
 	popd
@@ -54,7 +54,7 @@ tools:
 # We don't usually modify the PathOfBuilding directory, so there's rarely a
 # need to delete it. We separate it out to a separate task.
 fullyclean: clean
-	rm -rf PathOfBuilding
+	rm -rf PathOfBuilding-PoE2-v2
 
 clean:
 	rm -rf PathOfBuildingBuild PathOfBuilding-PoE2-v2.app Lua-cURLv3 lcurl.so build
