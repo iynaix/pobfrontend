@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "POE1" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "POE1" ]
   schedule:
     - cron: '30 13 * * *'
   workflow_dispatch: 
