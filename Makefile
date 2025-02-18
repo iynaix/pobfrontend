@@ -51,7 +51,7 @@ luacurl:
 tools:
 	arch --x86_64 brew install qt@5 luajit zlib meson curl dylibbundler gcc@12 luarocks; \
 	sudo luarocks install luautf8; \
-	sudo luarocks show luaut8
+	sudo luarocks show luautf8
 
 # We don't usually modify the PathOfBuilding directory, so there's rarely a
 # need to delete it. We separate it out to a separate task.
